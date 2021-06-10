@@ -1,0 +1,35 @@
+version: 1
+
+kind: experiment
+
+build:
+  image: docker.dm-ai.cn/algorithm-research/habitat-gl-stable-11.0:latest
+
+environment:
+  resources:
+    cpu:
+      requests: 1
+      limits: 1
+    gpu:
+      requests: 2
+      limits: 2
+  tolerations:
+    - key: "dedicated"
+      operator: "Equal"
+      value: nv3090
+      effect: "NoSchedule"
+    - key: "dm.ai/zone"
+      operator: "Equal"
+      value: gz2
+      effect: "NoSchedule"
+
+logging:
+  level: INFO
+
+run:
+  cmd: >
+    python3.6 habitat_baselines/run.py \
+      --exp-config habitat_baselines/config/multinav/ppo_mamonav.yaml \
+      --agent-type oracle-ego \
+      --run-type train \
+      --atp
