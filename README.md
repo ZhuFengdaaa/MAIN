@@ -49,43 +49,37 @@ cd MAIN
 pip install -r requirements.txt
 ```
 
-### Downloading data and checkpoints
+#### Download MAIN dataset
 
-<!-- To evaluate pre-trained models and train new models, you will need to download the MultiON dataset, including objects inserted into the scenes, and model checkpoints. Running `download_multion_data.sh` from the root directory (`multiON/`) will download the data and extract it to appropriate directories. Note that you are still required to download Matterport3D scenes after you run the script (see section on **Download Matterport3D scenes** below). Running the script will download the OracleEgoMap (`oracle-ego`) pre-trained model by default. If you'd like to evaluate other pre-trained models, [see this](docs/downloading_pretrained_models.md). -->
-
-```
-bash download_MAIN_data.sh
-```
-
-#### Download multiON dataset
-
-*You do not need to complete this step if you have successfully run the `download_multion_data.sh` script above.*
-
-Run the following to download multiON dataset and cached oracle occupancy maps:
 ```
 mkdir data
 cd data
 mkdir datasets
 cd datasets
-wget -O multinav.zip "http://aspis.cmpt.sfu.ca/projects/multion/multinav.zip"
-unzip multinav.zip && rm multinav.zip
-cd ../
-wget -O objects.zip "http://aspis.cmpt.sfu.ca/projects/multion/objects.zip"
-unzip objects.zip && rm objects.zip
-wget -O default.phys_scene_config.json "http://aspis.cmpt.sfu.ca/projects/multion/default.phys_scene_config.json"
-cd ../
-mkdir oracle_maps
-cd oracle_maps
-wget -O map300.pickle "http://aspis.cmpt.sfu.ca/projects/multion/map300.pickle"
-cd ../
 ```
+
+download dataset from the link below: 
+
+`https://drive.google.com/file/d/1H3fvyPi_OoXJfzV0HzK-Gix5fiizdM4Z/view?usp=sharing`
+
+extract the dataset file: 
+
+`tar-xf main_data.tar`
+
+download the oracle occupancy from the link below: 
+
+https://drive.google.com/file/d/1vDY3Wuc8jLSeGwnb2GSlGUzECTgkKo9k/view?usp=sharing
+
+extract the oracle map file: 
+
+`unzip oracle.zip`
 
 #### Download Matterport3D scenes
 
 The Matterport scene dataset and multiON dataset should be placed in `data` folder under the root directory (`multiON/`) in the following format:
 
 ```
-multiON/
+MAIN/
   data/
     scene_datasets/
       mp3d/
@@ -108,61 +102,20 @@ multiON/
 
 Download Matterport3D data for Habitat by following the instructions mentioned [here](https://github.com/facebookresearch/habitat-api#data).
 
-## Usage
-
-### Pre-trained models
-
-*You do not need to complete this step if you have successfully run the `download_multion_data.sh` script above.* 
-
-```
-mkdir model_checkpoints
-``` 
-Download a pre-trained agent model as shown below.
-
-| Agent            | Run                                                                                                  |
-|------------------|:----------------------------------------------------------------------------------------------------:|
-| NoMap(RNN)           |`wget -O model_checkpoints/ckpt.0.pth "http://aspis.cmpt.sfu.ca/projects/multion/model_checkpoints/ckpt.0.pth"`|
-| ProjNeural       |`wget -O model_checkpoints/ckpt.1.pth "http://aspis.cmpt.sfu.ca/projects/multion/model_checkpoints/ckpt.1.pth"`|
-| ObjRecog         |`wget -O model_checkpoints/ckpt.2.pth "http://aspis.cmpt.sfu.ca/projects/multion/model_checkpoints/ckpt.2.pth"`|
-| OracleEgoMap     |`wget -O model_checkpoints/ckpt.3.pth "http://aspis.cmpt.sfu.ca/projects/multion/model_checkpoints/ckpt.3.pth"`|
-| OracleMap        |`wget -O model_checkpoints/ckpt.4.pth "http://aspis.cmpt.sfu.ca/projects/multion/model_checkpoints/ckpt.4.pth"`|
-
-
-### Evaluation
-
-
-Evaluation will run on the `3_ON` test set by default. To change this, specify the dataset path [here](https://github.com/saimwani/multiON/blob/main/configs/tasks/multinav_mp3d.yaml#L48).
-
-
-To evaluate a pretrained OracleEgoMap (`oracle-ego`) agent, run this from the root folder (`multiON/`):
-
-```
-python habitat_baselines/run.py --exp-config habitat_baselines/config/multinav/ppo_multinav.yaml --agent-type oracle-ego --run-type eval
-``` 
-
-For other agent types, the `--agent-type` argument should be changed according to this table:
-
-
-| Agent         |  Agent type      |
-|---------------|------------------|
-| NoMap(RNN)    | `no-map`         |
-| OracleMap     | `oracle`         |
-| OracleEgoMap  | `oracle-ego`     |
-| ProjNeuralmap | `proj-neural`    |
-| ObjRecogMap   | `obj-recog`      |
-
-
-Average evaluation metrics are printed on the console when evaluation ends. Detailed metrics are placed in `eval/metrics` directory. 
-
 ### Training
 
 For training an OracleEgoMap (`oracle-ego`) agent, run this from the root directory: 
 
 ```
-python habitat_baselines/run.py --exp-config habitat_baselines/config/multinav/ppo_multinav.yaml --agent-type oracle-ego --run-type train
+python habitat_baselines/run.py --exp-config habitat_baselines/config/multinav/ppo_mamonav.yaml --agent-type oracle-ego --run-type train
 ```
 For other agent types, the `--agent-type` argument would change accordingly. 
 
+### Evaluation
+
+```
+python habitat_baselines/run.py --exp-config habitat_baselines/config/multinav/ppo_mamonav.yaml --agent-type oracle-ego --run-type eval
+```
 
 
 ## Citation
