@@ -119,17 +119,8 @@ python habitat_baselines/run.py --exp-config habitat_baselines/config/multinav/p
 
 
 ## Citation
->Saim Wani*, Shivansh Patel*, Unnat Jain*, Angel X. Chang, Manolis Savva, 2020. MultiON: Benchmarking Semantic Map Memory using Multi-Object Navigation in Neural Information Processing Systems (NeurIPS). [PDF](https://shivanshpatel35.github.io/multi-ON/resources/MultiON.pdf)
-
-## Bibtex
-```
-  @inproceedings{wani2020multion,
-  title={Multi-ON: Benchmarking Semantic Map Memory using Multi-Object Navigation},
-  author={Saim Wani and Shivansh Patel and Unnat Jain and Angel X. Chang and Manolis Savva},
-  booktitle={Neural Information Processing Systems (NeurIPS)},
-  year={2020},
-}
-```
+> Fengda Zhu, Siyi Hu, Yi Zhang, Haodong Hong, Yi Zhu, Xiaojun Chang, Xiaodan Liang, 2021. MAIN: A Multi-agent Indoor Navigation Benchmark for Cooperative Learning 
 
 ## Acknowledgements
+This repository is built upon [Habitat Lab](https://github.com/facebookresearch/habitat-lab).
 This repository is built upon [Habitat Lab](https://github.com/facebookresearch/habitat-lab).
