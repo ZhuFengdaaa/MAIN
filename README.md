@@ -122,5 +122,4 @@ python habitat_baselines/run.py --exp-config habitat_baselines/config/multinav/p
 > Fengda Zhu, Siyi Hu, Yi Zhang, Haodong Hong, Yi Zhu, Xiaojun Chang, Xiaodan Liang, 2021. MAIN: A Multi-agent Indoor Navigation Benchmark for Cooperative Learning 
 
 ## Acknowledgements
-This repository is built upon [Habitat Lab](https://github.com/facebookresearch/habitat-lab).
-This repository is built upon [Habitat Lab](https://github.com/facebookresearch/habitat-lab).
+This repository is built upon [Habitat Lab](https://github.com/facebookresearch/habitat-lab), [Habitat Sim](https://github.com/facebookresearch/habitat-lab), [multiON](https://github.com/saimwani/multiON).
