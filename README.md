@@ -1,21 +1,14 @@
+![overview](./assets/overview.jpg)
 
+# MAIN: A Real-world Multi-agent Indoor Navigation Benchmark for Cooperative Learning
 
-[![Conference](http://img.shields.io/badge/NeurIPS-2020-4b44ce.svg)](https://nips.cc/)
-[![Paper](http://img.shields.io/badge/paper-arxiv.2012.03912-B31B1B.svg)](https://arxiv.org/abs/2012.03912)
-[![Python 3.6](https://img.shields.io/badge/python-3.6-blue.svg)](https://www.python.org/downloads/release/python-360/)
-[![Supports Habitat Lab](https://img.shields.io/static/v1?label=supports&message=Habitat%20Lab&color=informational&link=https://github.com/facebookresearch/habitat-lab)](https://github.com/facebookresearch/habitat-lab)
+An implementation of "MAIN: A Real-world Multi-agent Indoor Navigation Benchmark for Cooperative Learning"
 
-# MultiON: Benchmarking Semantic Map Memory using Multi-Object Navigation 
-
-This is a PyTorch implementation of our NeurIPS 2020 paper, [MultiON: Benchmarking Semantic Map Memory using Multi-Object Navigation](https://arxiv.org/abs/2012.03912).
-
-Project Webpage: https://shivanshpatel35.github.io/multi-ON/
-
-![](docs/main_visualization.gif)
+<!-- ![](docs/main_visualization.gif) -->
 
 ## Architecture Overview
 
-![](docs/model_architecture.png)
+![](assets/framework_v2.jpg)
 
 
 ## Installing dependencies:
@@ -45,25 +38,23 @@ git checkout 676e593b953e2f0530f307bc17b6de66cff2e867
 pip install -e .
 ```
 
-We know that roadblocks can come up while installing Habitat, we are here to help! For installation issues in habitat, feel free to raise an issue in this repository, or in the corresponding habitat repository.
-
-
+<!-- We know that roadblocks can come up while installing Habitat, we are here to help! For installation issues in habitat, feel free to raise an issue in this repository, or in the corresponding habitat repository. -->
 
 ## Setup
 Clone the repository and install the requirements:
 
 ```
-git clone https://github.com/saimwani/multiON
-cd multiON
+git clone https://github.com/ZhuFengdaaa/MAIN.git
+cd MAIN
 pip install -r requirements.txt
 ```
 
 ### Downloading data and checkpoints
 
-To evaluate pre-trained models and train new models, you will need to download the MultiON dataset, including objects inserted into the scenes, and model checkpoints. Running `download_multion_data.sh` from the root directory (`multiON/`) will download the data and extract it to appropriate directories. Note that you are still required to download Matterport3D scenes after you run the script (see section on **Download Matterport3D scenes** below). Running the script will download the OracleEgoMap (`oracle-ego`) pre-trained model by default. If you'd like to evaluate other pre-trained models, [see this](docs/downloading_pretrained_models.md).
+<!-- To evaluate pre-trained models and train new models, you will need to download the MultiON dataset, including objects inserted into the scenes, and model checkpoints. Running `download_multion_data.sh` from the root directory (`multiON/`) will download the data and extract it to appropriate directories. Note that you are still required to download Matterport3D scenes after you run the script (see section on **Download Matterport3D scenes** below). Running the script will download the OracleEgoMap (`oracle-ego`) pre-trained model by default. If you'd like to evaluate other pre-trained models, [see this](docs/downloading_pretrained_models.md). -->
 
 ```
-bash download_multion_data.sh
+bash download_MAIN_data.sh
 ```
 
 #### Download multiON dataset
